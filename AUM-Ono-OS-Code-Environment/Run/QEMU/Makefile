@@ -1,0 +1,15 @@
+THIS_PATH=/root/env/AUM-Ono-OS-Code-Environment
+BUILD=$(THIS_PATH)/Build
+BUILD_SETTINGS=$(BUILD)/Settings
+BUILD_BINARY=$(BUILD)/Binary
+THIS_DIRECTORY=$(BUILD_SETTINGS)/Linux
+SOURCE_CODE=$(THIS_PATH)/Source
+BOOT_CODE=$(SOURCE_CODE)/Boot
+
+RESULT=$(THIS_PATH)/Operating-System
+THIS_BOOTLOADER = $(BUILD_BINARY)/AUM-Ono-Bootloader.bin
+THIS_KERNEL = $(BUILD_BINARY)/AUM-Ono-Kernel.bin
+THIS_OS = $(RESULT)/AUM-Ono-OS.bin
+
+qemuRunOS:
+	qemu-system-i386 -fda $(THIS_OS)
