@@ -1,3 +1,4 @@
+
 # WARNING:
 
 # This environment is multi-lingual with Linux and Windows.
@@ -6,14 +7,28 @@
 # repository into your /root/env directory. You must use that
 # directory after cloning the code.
 
+
 THIS_PATH=/root/env
-osCodeEnvironment=$(THIS_PATH)/AUM-Ono-OS-Code-Environment
+OS_CODING_ENVIRONMENT=$(THIS_PATH)/AUM-Ono-OS-Code-Environment
+DEPENDENCY_INSTALLER=$(THIS_PATH)/AUM-Ono-OS-Dependencies-And-Installers
+EMULATORS=$(THIS_PATH)/AUM-Ono-OS-Run
+
+
 
 buildOS:
-	cd $(osCodeEnvironment)/Build/Build-Script && make buildOS
+	cd $(OS_CODING_ENVIRONMENT)/Build/Build-Script && make buildOS
+
+
 
 cleanBuildOS:
-	cd $(osCodeEnvironment)/Build/Build-Script && make cleanBuildOS
+	cd $(OS_CODING_ENVIRONMENT)/Build/Build-Script && make cleanBuildOS
+
+
+
+installDependencies:
+	cd $(DEPENDENCY_INSTALLER)/Linux && make setupAll
+
+
 
 # WARNING:
 
@@ -21,4 +36,4 @@ cleanBuildOS:
 # Run the Run-AUM-Ono-OS.bat after building if on Windows.
 # You can set up a hotkey for that to make it faster.
 qemuRunOS:
-	cd $(osCodeEnvironment)/Run/QEMU && make qemuRunOS
+	cd $(EMULATORS)/Linux/QEMU && make qemuRunOS
