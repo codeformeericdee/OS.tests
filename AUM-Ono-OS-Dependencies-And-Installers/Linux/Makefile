@@ -1,6 +1,7 @@
 
 # WARNING:
 
+
 # This environment is multi-lingual with Linux and Windows.
 # As a result, it is required to run from root, in /root/env.
 # If you are operating from Linux native, it will copy the 
@@ -8,12 +9,14 @@
 # directory after cloning the code.
 
 
+
 THIS_PATH=/root/env
 TMP_DIRECTORY=/root/tmp
 
 
 
-setupAll:
+
+installDependencies:
 	apt-get update
 	apt-get upgrade -y
 	apt-get install -y nasm
@@ -27,8 +30,9 @@ setupAll:
 
 
 
+
 setupVim:
 	-mkdir $(TMP_DIRECTORY)
 	-touch $(THIS_PATH)/.vimrc
-	echo :set dir=$(TMP_DIRECTORY) > $(THIS_PATH).vimrc
+	echo :set dir=$(TMP_DIRECTORY) > $(THIS_PATH)/.vimrc
 	cat $(THIS_PATH).vimrc
