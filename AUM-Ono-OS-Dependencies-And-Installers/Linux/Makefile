@@ -35,4 +35,4 @@ setupVim:
 	-mkdir $(TMP_DIRECTORY)
 	-touch $(THIS_PATH)/.vimrc
 	echo :set dir=$(TMP_DIRECTORY) > $(THIS_PATH)/.vimrc
-	cat $(THIS_PATH).vimrc
+	cat $(THIS_PATH)/.vimrc

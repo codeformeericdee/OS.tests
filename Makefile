@@ -19,23 +19,31 @@ EMULATORS=$(THIS_PATH)/AUM-Ono-OS-Run
 
 
 buildOS:
-	@tput init
+	@echo
 	@echo If this directory can not be located, you may need to first run make installDependencies from a fresh clone to generate it.
-	@tput setab 9
-	@tput setaf 16 
+	@echo
+	@echo
 	cd $(OS_CODING_ENVIRONMENT)/Build/Build-Script && make buildOS
-	@tput init
+
+
+
+
+clean:
+	@echo
+	@echo If this directory can not be located, you may need to first run make installDependencies from a fresh clone to generate it.
+	@echo
+	@echo
+	cd $(OS_CODING_ENVIRONMENT)/Build/Build-Script && make clean
 
 
 
 
 cleanBuildOS:
-	@tput init
+	@echo
 	@echo If this directory can not be located, you may need to first run make installDependencies from a fresh clone to generate it.
-	@tput setab 9
-	@tput setaf 16 
+	@echo
+	@echo
 	cd $(OS_CODING_ENVIRONMENT)/Build/Build-Script && make cleanBuildOS
-	@tput init
 
 
 
@@ -55,3 +63,17 @@ installDependencies:
 # You can set up a hotkey for that to make it faster.
 qemuRunOS:
 	cd $(EMULATORS)/Linux/QEMU && make qemuRunOS
+
+
+
+
+# WARNING:
+
+
+# This command will only run on Linux native.
+# Run the Run-AUM-Ono-OS.bat after building if on Windows.
+# You can set up a hotkey for that to make it faster.
+all:
+	make cleanBuildOS
+	make qemuRunOS
+
