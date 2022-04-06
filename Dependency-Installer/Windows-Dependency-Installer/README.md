@@ -8,6 +8,7 @@ Just double click them to run them and follow the instructions.
     The installation includes setting up WSL2 so you don't have to.
 
 After restart
+
 2. Admin-Start-And-Build-Docker.bat
     Installation milestones:
     This will start Docker Desktop (dockerd.exe/CLI is deprecated, and desktop is required).

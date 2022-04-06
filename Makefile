@@ -18,7 +18,7 @@ cleanBuildOS:
 # WARNING:
 
 # This command will only run on Linux native.
-# Run the QEMU.bat after building if on Windows.
+# Run the Run-AUM-Ono-OS.bat after building if on Windows.
 # You can set up a hotkey for that to make it faster.
 qemuRunOS:
 	cd $(osCodeEnvironment)/Run/QEMU && make qemuRunOS
