@@ -1,4 +1,6 @@
+
 # WARNING:
+
 
 # This environment is multi-lingual with Linux and Windows.
 # As a result, it is required to run from root, in /root/env.
@@ -6,28 +8,31 @@
 # repository into your /root/env directory. You must use that
 # directory after cloning the code.
 
+
+
 THIS_PATH=/root/env
-osCodeEnvironment=$(THIS_PATH)/AUM-Ono-OS-Code-Environment
+TMP_DIRECTORY=~/tmp
 
-createOS:
-	make buildOS 
-	make qemuRunOS
 
-buildOS:
-	cd $(osCodeEnvironment)/Build/Settings/Linux && make buildOS
 
-qemuRunOS:
-	cd $(osCodeEnvironment)/Run/QEMU && make qemuRunOS
 
-setupAll:
+installDependencies:
+	apt-get update
+	apt-get upgrade -y
+	apt-get install -y nasm
+	apt-get install -y clang
+	apt-get install -y make
+	apt-get install -y vim
 	apt-get install -y qemu-system-i386
 	apt-get install -y tree
 	make setupVim
-	tree
+	cd $(THIS_PATH) && tree
 
-TMP_DIRECTORY=/root/tmp
+
+
+
 setupVim:
 	-mkdir $(TMP_DIRECTORY)
-	-touch .vimrc
-	echo :set dir=$(TMP_DIRECTORY) > .vimrc
-	cat .vimrc
+	-touch ~/.vimrc
+	echo :set dir=$(TMP_DIRECTORY) > ~/.vimrc
+	cat ~/.vimrc

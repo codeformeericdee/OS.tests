@@ -1,1 +1,3 @@
 .vimrc
+**/Binary/*.bin
+**/Result/*.flp
