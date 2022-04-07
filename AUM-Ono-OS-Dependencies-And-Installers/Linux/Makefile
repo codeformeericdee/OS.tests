@@ -11,7 +11,7 @@
 
 
 THIS_PATH=/root/env
-TMP_DIRECTORY=/root/tmp
+TMP_DIRECTORY=~/tmp
 
 
 
@@ -33,6 +33,6 @@ installDependencies:
 
 setupVim:
 	-mkdir $(TMP_DIRECTORY)
-	-touch $(THIS_PATH)/.vimrc
-	echo :set dir=$(TMP_DIRECTORY) > $(THIS_PATH)/.vimrc
-	cat $(THIS_PATH)/.vimrc
+	-touch ~/.vimrc
+	echo :set dir=$(TMP_DIRECTORY) > ~/.vimrc
+	cat ~/.vimrc

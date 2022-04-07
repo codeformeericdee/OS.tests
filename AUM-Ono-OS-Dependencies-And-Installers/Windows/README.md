@@ -17,13 +17,13 @@ After restart
 
 3. Admin-Start-And-Run-Docker.bat
     This will start Docker Desktop, or bring it to front if it is running.
-    It will then run Docker Desktop using the image that was build previously.
+    It will then run Docker Desktop using the image that was built previously.
 
 4. You can use the Makefile commands found in the /root/env directory at this point.
     Build milestones:
     Use the make buildOS, or make cleanBuildOS to build the Operating System.
 
 5. After building the OS
-    Run the OS using the Run-AUM-Ono-OS.bat script located in AUM-Ono-OS-Run/Windows/QEMU
+    Run the OS using the Run-AUM-Ono-OS.bat script located in AUM-Ono-OS-Run/Windows/QEMU.
     Run milestones:
     A Linux container cannot run a GUI. You must run the batch script from Windows natively.
