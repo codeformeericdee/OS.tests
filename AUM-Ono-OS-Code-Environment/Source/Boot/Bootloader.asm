@@ -2,11 +2,10 @@
 
 
 bits 16
-START_OF_HEADER:
-    jmp 0x7c0:BOOTLOADER
+BOOTLOADER_HEADER:
+    jmp 0x7c0:END_OF_BOOTLOADER_HEADER
 %include "/root/env/AUM-Ono-OS-Code-Environment/Source/Boot/Disk.asm"
-END_OF_HEADER:
-BOOTLOADER:
+END_OF_BOOTLOADER_HEADER:
     mov ax, 0x0e31
     int 0x10
     mov cl, 2 ;Read sector #2.
