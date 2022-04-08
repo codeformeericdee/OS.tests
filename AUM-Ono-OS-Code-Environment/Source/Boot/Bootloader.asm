@@ -4,11 +4,11 @@
 
     bits 16 ;Set the instruction pointer.
 BOOTLOADER_HEADER: ;Initial settings.
-jmp 0x7c0:END_OF_BOOTLOADER_HEADER ;Jump to the magic number address offset end label. If this sector has been loaded into the boot sector, it will be found.
+jmp 0x7c0:END_BOOTLOADER_HEADER ;Jump to the magic number address offset end label. If this sector has been loaded into the boot sector, it will be found.
 
     %include "/root/env/AUM-Ono-OS-Code-Environment/Source/Boot/Disk.asm" ;Include code to read from the disk and into memory.
 
-    END_OF_BOOTLOADER_HEADER: ;The code for loading the second stage of the boot process and use more than 512 bytes.
+    END_BOOTLOADER_HEADER: ;The code for loading the second stage of the boot process and use more than 512 bytes.
 mov ax, 0x0e62 ;Move a lowercase b into al with the display instruction in ah.
 int 0x10 ;Interrupt to read ax.
 mov cl, 2 ;Read sector #2.
