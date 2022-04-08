@@ -15,7 +15,6 @@ TMP_DIRECTORY=~/tmp
 
 
 
-
 installDependencies:
 	apt-get update
 	apt-get upgrade -y
@@ -27,7 +26,6 @@ installDependencies:
 	apt-get install -y tree
 	make setupVim
 	cd $(THIS_PATH) && tree
-
 
 
 

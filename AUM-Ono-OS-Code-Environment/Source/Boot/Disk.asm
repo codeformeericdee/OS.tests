@@ -1,26 +1,28 @@
 
 
 
-;PARAMETERS:
-;al - Read this many sectors
-;cl - Sector
-;ch - Cylinder or track
-;dl - Drive
-;dh - Head
-disk_to_address:dw 0x0 ; - Label for address to load to 
-DISK_TO_MEMORY:
-    pusha
-    mov ah, 2      ;Argument for reading disk
-    xor bx, bx     ;Segment clear
-    mov es, bx     ;Make bx readable
-    mov bx, [disk_to_address] ;Address expected to find the kernel
-    int 0x13       ;BIOS read disk
 
-    jnc .EXIT
-    mov ax, 0x0e65
-    int 0x10
-    jmp $
+    ;PARAMETERS:
+;al - Read this many sectors.
+;cl - Sector.
+;ch - Cylinder or track.
+;dl - Drive.
+;dh - Head.
+disk_to_address:dw 0x0 ; - Label for address to load to.
+
+    DISK_TO_MEMORY: ;Function to load disk locations into memory.
+pusha ;Push all current registers onto the stack to recall after the function is run.
+mov ah, 2 ;Since al is a variable parameter, only ah is hardcoded as an argument for reading from the disk.
+xor bx, bx ;Reset the b registers to zero.
+mov es, bx ;Reset the extra segment to zero in order to use zero as the base address to offset from.
+mov bx, [disk_to_address] ;Move the address given as a parameter to the offset.
+int 0x13 ;Interrupt to read the a registers with the read disk format.
+jnc .EXIT ;If there are not any carry flags set that means there weren't any errors, so jump to this exit.
+
+    mov ax, 0x0e65 ;If there was a carry flag set, that means there was an error, so add a lowercase e to al with the display instruction in ah.
+int 0x10 ;Interrupt to read the a registers with the display format.
+jmp $ ;Jump to here/stall.
 
     .EXIT:
-    popa
-    ret
+popa ;Restore the registers from the stack that were placed onto it at the beginning of this function.
+ret ;Return to the location this function was called from.

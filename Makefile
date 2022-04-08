@@ -17,14 +17,12 @@ EMULATORS=$(THIS_PATH)/AUM-Ono-OS-Run
 
 
 
-
 buildOS:
 	@echo
 	@echo If this directory can not be located, you may need to first run make installDependencies from a fresh clone to generate it.
 	@echo
 	@echo
 	cd $(OS_CODING_ENVIRONMENT)/Build/Build-Script && make buildOS
-
 
 
 
@@ -37,7 +35,6 @@ clean:
 
 
 
-
 cleanBuildOS:
 	@echo
 	@echo If this directory can not be located, you may need to first run make installDependencies from a fresh clone to generate it.
@@ -47,11 +44,9 @@ cleanBuildOS:
 
 
 
-
 installDependencies:
 	-cp -rf ./ $(THIS_PATH)
 	cd $(DEPENDENCY_INSTALLER)/Linux && make installDependencies
-
 
 
 
@@ -63,7 +58,6 @@ installDependencies:
 # You can set up a hotkey for that to make it faster.
 qemuRunOS:
 	cd $(EMULATORS)/Linux/QEMU && make qemuRunOS
-
 
 
 

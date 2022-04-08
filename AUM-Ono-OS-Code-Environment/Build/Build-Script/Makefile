@@ -12,17 +12,15 @@ THIS_BINARY=$(THIS_BUILD)/Binary
 
 BUILD_RESULTS=$(THIS_BUILD)/Result
 THIS_BOOTLOADER = $(THIS_BINARY)/AUM-Ono-Bootloader.bin
-THIS_KERNEL = $(THIS_BINARY)/AUM-Ono-Kernel.bin
+THIS_BOOT_STAGE_TWO = $(THIS_BINARY)/AUM-Ono-Boot-Stage-Two.bin
 THIS_OS = $(BUILD_RESULTS)/AUM-Ono-OS.flp
-
 
 
 
 buildOS:
 	nasm $(THIS_BOOT_CODE)/Bootloader.asm -o $(THIS_BOOTLOADER)
-	nasm $(THIS_BOOT_CODE)/Kernel.asm -o $(THIS_KERNEL)
-	cat $(THIS_BOOTLOADER) $(THIS_KERNEL) > $(THIS_OS)
-
+	nasm $(THIS_BOOT_CODE)/Boot-Stage-Two.asm -o $(THIS_BOOT_STAGE_TWO)
+	cat $(THIS_BOOTLOADER) $(THIS_BOOT_STAGE_TWO) > $(THIS_OS)
 
 
 
@@ -32,9 +30,6 @@ clean:
 
 
 
-
 cleanBuildOS:
 	make clean
-	nasm $(THIS_BOOT_CODE)/Bootloader.asm -o $(THIS_BOOTLOADER)
-	nasm $(THIS_BOOT_CODE)/Kernel.asm -o $(THIS_KERNEL)
-	cat $(THIS_BOOTLOADER) $(THIS_KERNEL) > $(THIS_OS)
+	make buildOS
