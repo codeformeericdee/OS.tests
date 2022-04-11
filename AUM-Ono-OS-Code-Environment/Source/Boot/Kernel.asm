@@ -5,22 +5,22 @@ Mov si, OS_WELCOME
     Call DISPLAY_SI
 
     Mov byte [Parameter_display_binary_insert], '0' 
-Mov bx, 255 
+Mov bx, 0xff 
 
     Call DISPLAY_BINARY
 
     Mov byte [Parameter_display_binary_insert], '-' 
-Mov bx, 128 
+Mov bx, 0x80 
 
     Call DISPLAY_BINARY
 
     Mov byte [Parameter_display_binary_insert], '_' 
-Mov bx, 81 
+Mov bx, 0x51
 
     Call DISPLAY_BINARY
 
     Mov byte [Parameter_display_binary_insert], '!' 
-Mov bx, 16 
+Mov bx, 0x10 
 
     Call DISPLAY_BINARY
 
@@ -64,7 +64,7 @@ jmp .lineLoop
 mov si, di
 .siLoop:
 Mov al, [si]
-Cmp al, 255
+Cmp al, 0xff
 Jz .exit
 
     int 0x10
@@ -128,7 +128,7 @@ Mov cx, 8
     Call ARRAY_INSERT
 
     Mov si, Local_display_binary_nine_bytes
-Mov ax, 128 ;Start at 128.
+Mov ax, 0x80 ;Start at 128.
 Mov cx, 2 ;Divisor.
 .loop:
 Cmp bx, 0

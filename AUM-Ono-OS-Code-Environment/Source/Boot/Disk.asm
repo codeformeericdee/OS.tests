@@ -11,7 +11,7 @@
 ; Dh                        | Head.
 ; Parameter_disk_to_address | The label for the address to load to from disk space.
 
-    disk_to_address:dw 0x0
+    disk_to_address:dw 0
 
     DISK_TO_MEMORY: ;Function to load disk locations into memory.
 pusha ;Push all current registers onto the stack to recall after the function is run.
