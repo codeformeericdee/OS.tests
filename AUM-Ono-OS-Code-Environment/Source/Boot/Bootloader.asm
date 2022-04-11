@@ -1,7 +1,3 @@
-
-
-
-
     bits 16 ;Set the instruction pointer.
 BOOTLOADER_HEADER: ;Initial settings.
 jmp 0x7c0:END_BOOTLOADER_HEADER ;Jump to the magic number address offset end label. If this sector has been loaded into the boot sector, it will be found.
@@ -18,8 +14,10 @@ mov dh, 0 ;Read from head #0.
 mov al, 1 ;Read 1 sector.
 mov bx, 0x5100 ;Move the address of the second stage boot process into bx as per the specification of this OS.
 mov [disk_to_address], bx ;Move that address into a parameter label for the disk function to recall.
-call DISK_TO_MEMORY ;Run the disk function to read from the designated disk locations into its recall address.
-mov ax, 0x0e30 ;Set ax per the specification of this OS - needed.
+
+    call DISK_TO_MEMORY ;Run the disk function to read from the designated disk locations into its recall address.
+
+    mov ax, 0x0e30 ;Set ax per the specification of this OS - needed.
 xor bx, bx ;Restore the b registers to zero.
 xor cx, cx ;Restore the c registers to zero.
 xor dx, dx ;Restore the d registers to zero.
