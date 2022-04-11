@@ -1,4 +1,4 @@
-    bits 16 ;Set the instruction pointer.
+    bits 16 ;Set the bit limi.
 BOOTLOADER_HEADER: ;Initial settings.
 jmp 0x7c0:END_BOOTLOADER_HEADER ;Jump to the magic number address offset end label. If this sector has been loaded into the boot sector, it will be found.
 
