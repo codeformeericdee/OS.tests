@@ -32,15 +32,15 @@ mov [param_diskToAddress], bx                               ; Move that address 
     
     call DiskToMemory
 
-mov ax, 0x63                                               ; Validates the OS/Acts as a serial number.
-xor bx, bx                                                 ; Restore the b registers to zero.
-xor cx, cx                                                 ; Restore the c registers to zero.
-xor dx, dx                                                 ; Restore the d registers to zero.
-mov es, bx                                                 ; Restore the Extra segment to zero - needed.
-mov fs, bx                                                 ; Restore the Extra segment2 to zero.
-mov gs, bx                                                 ; Restore the Extra segment3 to zero.
-mov ds, bx                                                 ; Restore the Data segment to zero - needed.
-mov ss, bx                                                 ; Restore the Stack segment (Stack address, data, and return addresses) to zero.
-jmp 0:ADDRESS_OF_OS                                        ; Jump to the OS.
+mov ax, 0x63                                                ; Validates the OS/Acts as a serial number.
+xor bx, bx                                                  ; Restore the b registers to zero.
+xor cx, cx                                                  ; Restore the c registers to zero.
+xor dx, dx                                                  ; Restore the d registers to zero.
+mov es, bx                                                  ; Restore the Extra segment to zero - needed.
+mov fs, bx                                                  ; Restore the Extra segment2 to zero.
+mov gs, bx                                                  ; Restore the Extra segment3 to zero.
+mov ds, bx                                                  ; Restore the Data segment to zero - needed.
+mov ss, bx                                                  ; Restore the Stack segment (Stack address, data, and return addresses) to zero.
+jmp 0:ADDRESS_OF_OS                                         ; Jump to the OS.
 
     times 512 - ($ - $$) db 0                               ; Set the file size to exactly 512 bytes by padding to that point.
